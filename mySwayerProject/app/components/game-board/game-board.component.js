@@ -1,19 +1,7 @@
 import { styleVariables } from '../../styles/variables.js'
 import { GAME_STARTED, GAME_LOST } from '../../constants/channels.js'
 import { MODE_GHOSTS, COIN_ID, BOARD_ID } from '../../constants/game.js'
-
-/** @implements {IBoardModel} */
-class Board {
-    #defaultGhosts = []
-
-    state = {
-        ghosts: this.#defaultGhosts,
-    }
-
-    updateGhosts(ghosts) {
-        this.state.ghosts = ghosts
-    }
-}
+import BoardModel from './board-model.js'
 
 /** @type {Styles} */
 const coinStyles = {
@@ -74,7 +62,7 @@ export default (model) => {
         attrs: {
             id: BOARD_ID,
         },
-        model: new Board(),
+        model: new BoardModel(),
         channels: {
             [GAME_STARTED](mode) {
                 this.model.updateGhosts(MODE_GHOSTS[mode])
@@ -93,7 +81,7 @@ export default (model) => {
                     tag: 'div',
                     styles: boardStyles,
                     model,
-                    children: [...coins, ...creatures],
+                    children: coins.concat(creatures),
                 },
             ]
         },

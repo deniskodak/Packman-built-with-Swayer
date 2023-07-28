@@ -42,11 +42,8 @@ class MainModel {
     }
 
     resetModel() {
-        this.state.stats = {
-            score: this.#defaultScore,
-            turns: this.#defaultTurns,
-            coinsAmount: this.#defaultCoinsAmount,
-        }
+        this.state.stats.score = 0
+        setTimeout(() => (this.state.stats.turns = 0))
     }
 
     updateMode(mode) {
@@ -92,6 +89,7 @@ export default () => {
                 this.emitMessage(GHOST_DIRECTION_CHANNEL, '', GHOST_SCOPE)
             },
             [COIN_CHANNEL](coin) {
+                console.log(coin, 'coin')
                 this.model.increaseScore()
                 this.emitMessage(COIN_CHANNEL, coin.id, BOARD_SCOPE)
             },
@@ -105,7 +103,13 @@ export default () => {
                 this.model.state.modePopupModel.openPopup()
             },
         },
-        children: ({ modePopupModel, gameLostPopupModel, ...restState }) => {
+        children: ({
+            modePopupModel,
+            gameLostPopupModel,
+            stats: { score, turns },
+            mode,
+        }) => {
+            console.log(turns, 'turns')
             return [
                 {
                     path: '@components/header/header.component',
@@ -123,7 +127,7 @@ export default () => {
 
                 gameLostPopupModel.state.visible && {
                     path: '@components/lost-popup/lost-popup.component',
-                    input: { ...restState },
+                    input: { score, turns, mode },
                 },
             ].filter(Boolean)
         },

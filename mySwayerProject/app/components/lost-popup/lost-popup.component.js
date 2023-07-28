@@ -44,7 +44,7 @@ const renderStats = (mode, turns, score) => ({
 })
 
 /** @returns {Schema} */
-export default ({ mode, stats: { turns, score } }) => {
+export default ({ score, turns, mode }) => {
     return {
         tag: 'div',
         children: [
