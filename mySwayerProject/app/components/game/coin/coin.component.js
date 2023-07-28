@@ -1,4 +1,5 @@
-import { styleVariables } from '../../../styles/variables.js'
+import { styleVariables, coinBackground } from '../../../styles/variables.js'
+import { bounceTopAnimation } from '../../../styles/bounceTopAnimation.js'
 import { COIN_ID, EATEN_COIN_ID } from '../../../constants/game.js'
 import { COIN_CHANNEL } from '../../../constants/channels.js'
 import CoinModel from './coin-model.js'
@@ -8,10 +9,13 @@ const coinStyles = {
     width: '10px',
     height: '10px',
     borderRadius: '100%',
+    background: coinBackground,
+    backgroundSize: 'contain',
     backgroundColor: styleVariables.primary,
     compute: ({ isEaten }) => ({
-        opacity: +!isEaten,
+        animation: isEaten ? 'bounce-top 0.9s both' : '',
     }),
+    animations: [bounceTopAnimation],
 }
 
 /** @returns {Schema} */

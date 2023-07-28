@@ -27,8 +27,8 @@ const hardModeGhosts = [
 ]
 
 export const MODE_GHOSTS = {
-    [MODES.easy]: hardModeGhosts.slice(0, 2),
-    [MODES.medium]: hardModeGhosts.slice(0, 3),
+    [MODES.easy]: hardModeGhosts.slice(0, 2).concat(GHOSTS.ghosted),
+    [MODES.medium]: hardModeGhosts.slice(0, 3).concat(GHOSTS.ghosted),
     [MODES.hard]: hardModeGhosts,
 }
 export const BOARD_PADDING = 16

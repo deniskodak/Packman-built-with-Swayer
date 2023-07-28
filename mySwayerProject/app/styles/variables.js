@@ -35,3 +35,5 @@ export const creatureBackground = {
         'url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a80c8979-22d6-49c7-bca4-97613a4a9237/d5saelk-59f10b10-a01f-4300-9a6c-06a4cb1edcce.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E4MGM4OTc5LTIyZDYtNDljNy1iY2E0LTk3NjEzYTRhOTIzN1wvZDVzYWVsay01OWYxMGIxMC1hMDFmLTQzMDAtOWE2Yy0wNmE0Y2IxZWRjY2UuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.XUnNlFn3ruZGWjk4zykup6kgTTw3crPmmeO1U-tsXBg)',
     [CREATURE_TYPES.packman]: 'url(https://i.gifer.com/XOsf.gif)',
 }
+
+export const coinBackground = 'url(https://i.gifer.com/Fw3P.gif)'

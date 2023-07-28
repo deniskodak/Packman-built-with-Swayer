@@ -12,7 +12,10 @@ import { creatureBackground } from '../../../styles/variables.js'
 
 import generateStylesPositions from '../../../utils/generateCreatureStyles.js'
 import getRandomCreatureDirection from '../../../utils/getRandomCreatureDirection.js'
-import { getElementRefById, getPackmanRef } from '../../../utils/getElementRef.js'
+import {
+    getElementRefById,
+    getPackmanRef,
+} from '../../../utils/getElementRef.js'
 
 /** @returns {Styles} */
 const generateGhostStyles = (ghostName) => ({
@@ -52,6 +55,7 @@ export default ({ name }) => ({
             }, GHOST_DIRECTION_TIMEOUT)
         },
         destroy() {
+            this.model.resetDirection()
             clearInterval(this.props.interval)
         },
     },
