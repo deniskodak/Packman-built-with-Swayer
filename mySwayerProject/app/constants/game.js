@@ -34,3 +34,4 @@ export const MODE_GHOSTS = {
 export const BOARD_PADDING = 16
 export const COIN_EATEN_CLASS = 'eaten'
 export const COIN_ID = 'coin'
+export const BOARD_ID = 'board-wrapper'

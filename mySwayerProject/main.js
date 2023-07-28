@@ -2,10 +2,10 @@
 export default {
     namespaces: {
         '@app': 'app',
-        '@content': 'app/content',
-        '@creature:': 'app/creature',
-        '@shared': 'app/shared',
+        '@components': 'app/components',
+        '@pages': 'app/pages',
+        '@shared': 'app/components/shared',
         '@assets': 'assets',
     },
-    children: [{ path: '@app/page.component' }],
+    children: [{ path: '@pages/page.component' }],
 }

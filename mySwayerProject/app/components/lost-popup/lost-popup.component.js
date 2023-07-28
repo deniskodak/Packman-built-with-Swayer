@@ -1,5 +1,5 @@
-import { RESTART_GAME, CONTENT_SCOPE } from '../../../constants/channels.js'
-import { styleVariables } from '../../../styles/variables.js'
+import { RESTART_GAME, CONTENT_SCOPE } from '../../constants/channels.js'
+import { styleVariables } from '../../styles/variables.js'
 
 /** @type {Styles} */
 const statLabelStyles = {
@@ -44,7 +44,7 @@ const renderStats = (mode, turns, score) => ({
 })
 
 /** @returns {Schema} */
-export default ({ mode, turns, score }) => {
+export default ({ mode, stats: { turns, score } }) => {
     return {
         tag: 'div',
         children: [

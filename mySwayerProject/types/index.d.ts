@@ -21,9 +21,15 @@ interface CreatureState {
 }
 
 interface MainState {
-    score: number
-    turns: number
-    coinsAmount: number
+    stats: {
+        score: number
+        turns: number
+        coinsAmount: number
+    }
+    mode: string
+
+    modePopupModel: IPopupModel
+    gameLostPopupModel: IPopupModel
 }
 
 interface PopupState {

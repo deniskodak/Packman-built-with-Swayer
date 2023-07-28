@@ -1,5 +1,5 @@
-import { MODES, GAME_MODES } from '../../../constants/game.js'
-import { GAME_STARTED, CONTENT_SCOPE } from '../../../constants/channels.js'
+import { MODES, GAME_MODES } from '../../constants/game.js'
+import { GAME_STARTED, CONTENT_SCOPE } from '../../constants/channels.js'
 
 /**
  * This callback is displayed as a global member.

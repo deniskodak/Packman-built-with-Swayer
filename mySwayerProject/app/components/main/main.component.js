@@ -22,9 +22,11 @@ class MainModel {
     #defaultMode = MODES.medium
 
     state = {
-        score: this.#defaultScore,
-        turns: this.#defaultTurns,
-        coinsAmount: this.#defaultCoinsAmount,
+        stats: {
+            score: this.#defaultScore,
+            turns: this.#defaultTurns,
+            coinsAmount: this.#defaultCoinsAmount,
+        },
         mode: this.#defaultMode,
 
         modePopupModel: new PopupModel(),
@@ -32,16 +34,19 @@ class MainModel {
     }
 
     increaseScore() {
-        this.state.score += 1
+        this.state.stats.score += 1
     }
 
     increaseTurn() {
-        this.state.turns += 1
+        this.state.stats.turns += 1
     }
 
     resetModel() {
-        this.state.turns = this.#defaultTurns
-        this.state.score = this.#defaultScore
+        this.state.stats = {
+            score: this.#defaultScore,
+            turns: this.#defaultTurns,
+            coinsAmount: this.#defaultCoinsAmount,
+        }
     }
 
     updateMode(mode) {
@@ -103,21 +108,21 @@ export default () => {
         children: ({ modePopupModel, gameLostPopupModel, ...restState }) => {
             return [
                 {
-                    path: '@content/header.component',
+                    path: '@components/header/header.component',
                     input: mainModel,
                 },
                 {
-                    path: '@content/game-board.component',
+                    path: '@components/game-board/game-board.component',
                     input: mainModel,
                 },
 
                 modePopupModel.state.visible && {
-                    path: '@content/mode-popup/mode-popup.component',
+                    path: '@components/mode-popup/mode-popup.component',
                     input: { onRadioChange },
                 },
 
                 gameLostPopupModel.state.visible && {
-                    path: '@content/lost-popup/lost-popup.component',
+                    path: '@components/lost-popup/lost-popup.component',
                     input: { ...restState },
                 },
             ].filter(Boolean)

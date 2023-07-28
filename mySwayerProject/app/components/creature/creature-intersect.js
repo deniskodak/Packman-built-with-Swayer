@@ -1,11 +1,10 @@
 import { CREATURE_DIRECTIONS, CREATURE_SIZE } from '../../constants/creature.js'
 import { COIN_ID, COIN_EATEN_CLASS } from '../../constants/game.js'
 import { BOARD_PADDING } from '../../constants/game.js'
-import getElementRef from '../../utils/getElementRef.js'
+import { getBoardRef } from '../../utils/getElementRef.js'
 
 const DIRECTION_FIX = CREATURE_SIZE + BOARD_PADDING + BOARD_PADDING / 2
 const BOTTOM_DIRECTION_FIX = CREATURE_SIZE + BOARD_PADDING
-const getBoardRef = getElementRef('board-wrapper')
 
 /** @implements {ICreatureIntersect} */
 export default class CreatureIntersect {

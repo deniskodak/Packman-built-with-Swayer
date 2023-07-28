@@ -22,8 +22,8 @@ const INITIAL_GHOST_POSITION = {
 }
 
 const INITIAL_CREATURE_POSITION = {
-    [CREATURE_TYPES.ghost]: INITIAL_GHOST_POSITION,
-    [CREATURE_TYPES.packman]: INITIAL_PACKMAN_POSITION,
+    [CREATURE_TYPES.ghost]: { ...INITIAL_GHOST_POSITION },
+    [CREATURE_TYPES.packman]: { ...INITIAL_PACKMAN_POSITION },
 }
 
 /** @implements {ICreatureModel} */
@@ -52,6 +52,7 @@ export default class CreatureModel {
         if (this.positionInterval) clearInterval(this.positionInterval)
 
         this.updatePosition()
+
         if (isPackmanCreature) this.messenger.sendTurnChanged()
     }
 
@@ -92,7 +93,9 @@ export default class CreatureModel {
     }
 
     resetDirection() {
-        this.state.direction = ''
+        this.state.position = {
+            ...INITIAL_CREATURE_POSITION[this.creatureType],
+        }
     }
 
     hideCoin(coin) {

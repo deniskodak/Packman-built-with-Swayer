@@ -24,8 +24,8 @@ export default (mainModel) => ({
             text: 'PACMAN',
             styles: titleStyles,
         },
-        ({ score, turns }) => ({
-            path: '@content/game-info.component',
+        ({ stats: { score, turns } }) => ({
+            path: '@components/game-info/game-info.component',
             input: { score, turns },
         }),
     ],

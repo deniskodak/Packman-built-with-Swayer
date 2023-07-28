@@ -4,14 +4,13 @@ import {
     CREATURE_SIZE,
 } from '../../constants/creature.js'
 import { PACKMAN_DIRECTION_CHANNEL } from '../../constants/channels.js'
-import { GHOSTS } from '../../constants/game.js'
 
 import CreatureModel from './creature-model.js'
 import CreatureMessenger from './creature-messenger.js'
 import CreatureIntersect from './creature-intersect.js'
 
 import generateStylesPositions from '../../utils/generateCreatureStyles.js'
-import getElementRef from '../../utils/getElementRef.js'
+import { getGhostsRefs, getPackmanRef } from '../../utils/getElementRef.js'
 
 const ROTATE_DEGREES = {
     [CREATURE_DIRECTIONS.left]: '180deg',
@@ -41,12 +40,6 @@ export const packmanStyles = {
     },
 }
 
-const getGhostsRefs = Object.keys(GHOSTS).map(getElementRef)
-export const getPackmanRef = getElementRef('packman')
-
-const getGhostRefs = () =>
-    getGhostsRefs.map((getGhostRef) => getGhostRef()).filter(Boolean)
-
 /** @type {Schema<ICreatureModel>} */
 export default {
     tag: 'div',
@@ -58,18 +51,20 @@ export default {
     hooks: {
         ready() {
             const boundedEmitMessage = this.emitMessage.bind(this)
+
             const creatureMessenger = new CreatureMessenger(boundedEmitMessage)
             const creatureIntersect = new CreatureIntersect(
                 getPackmanRef(),
-                getGhostRefs()
+                getGhostsRefs()
             )
 
             this.model.setIntersect(creatureIntersect)
             this.model.setMessenger(creatureMessenger)
         },
-    },
-    destroy() {
-        clearInterval(this.model.positionInterval)
+        destroy() {
+            this.model.resetDirection()
+            clearInterval(this.model.positionInterval)
+        },
     },
     channels: {
         [PACKMAN_DIRECTION_CHANNEL]({ direction }) {

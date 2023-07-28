@@ -1,5 +1,3 @@
-// Simple object describing the head element
-
 /** @type {Schema} */
 export default {
   tag: 'head',

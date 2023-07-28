@@ -24,7 +24,7 @@ export default {
     tag: 'html',
     attrs: { lang: 'en' },
     children: [
-        { path: '@app/head.component' },
+        { path: '@pages/head.component' },
         {
             tag: 'body',
             events: {
@@ -42,7 +42,7 @@ export default {
                 },
             },
             styles: bodyStyles,
-            children: [{ path: '@content/content.component' }],
+            children: [{ path: '@components/main/main.component' }],
         },
     ],
 }

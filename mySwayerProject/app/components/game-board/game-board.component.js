@@ -1,6 +1,6 @@
 import { styleVariables } from '../../styles/variables.js'
 import { GAME_STARTED, GAME_LOST } from '../../constants/channels.js'
-import { MODE_GHOSTS, COIN_ID } from '../../constants/game.js'
+import { MODE_GHOSTS, COIN_ID, BOARD_ID } from '../../constants/game.js'
 
 /** @implements {IBoardModel} */
 class Board {
@@ -51,18 +51,18 @@ const createCoin = (index) => ({
 
 /** @returns {ComponentRef} */
 const renderGhost = (ghostName) => ({
-    path: '@app/creature/ghost.component',
+    path: '@components/creature/ghost.component',
     input: { name: ghostName },
 })
 
-/** @type {ComponentRef} */
+/** @returns {ComponentRef} */
 const packman = {
-    path: '@app/creature/packman.component',
+    path: '@components/creature/packman.component',
 }
 
 /** @returns {Schema} */
 export default (model) => {
-    const boardArray = Array.from(Array(model.state.coinsAmount).keys())
+    const boardArray = Array.from(Array(model.state.stats.coinsAmount).keys())
     const coins = boardArray.map(createCoin)
 
     return {
@@ -72,7 +72,7 @@ export default (model) => {
             padding: '1rem',
         },
         attrs: {
-            id: 'board-wrapper',
+            id: BOARD_ID,
         },
         model: new Board(),
         channels: {
