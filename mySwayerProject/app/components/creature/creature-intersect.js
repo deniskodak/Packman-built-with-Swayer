@@ -1,5 +1,5 @@
 import { CREATURE_DIRECTIONS, CREATURE_SIZE } from '../../constants/creature.js'
-import { COIN_ID, COIN_EATEN_CLASS } from '../../constants/game.js'
+import { COIN_ID } from '../../constants/game.js'
 import { BOARD_PADDING } from '../../constants/game.js'
 import { getBoardRef } from '../../utils/getElementRef.js'
 
@@ -20,11 +20,7 @@ export default class CreatureIntersect {
         const creatureRect = this.#getElementRect(this.creatureRef)
         this.lastTouchedCoin = document
             .elementsFromPoint(creatureRect.x, creatureRect.y)
-            .find(
-                (element) =>
-                    element.id.includes(COIN_ID) &&
-                    !element.classList.contains(COIN_EATEN_CLASS)
-            )
+            .find((element) => element.id.includes(COIN_ID))
 
         return !!this.lastTouchedCoin
     }

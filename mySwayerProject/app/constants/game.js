@@ -32,6 +32,6 @@ export const MODE_GHOSTS = {
     [MODES.hard]: hardModeGhosts,
 }
 export const BOARD_PADDING = 16
-export const COIN_EATEN_CLASS = 'eaten'
 export const COIN_ID = 'coin'
+export const EATEN_COIN_ID = 'eaten'
 export const BOARD_ID = 'board-wrapper'

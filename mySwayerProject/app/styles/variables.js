@@ -1,4 +1,5 @@
 import { GHOSTS } from '../constants/game.js'
+import { CREATURE_TYPES } from '../constants/creature.js'
 
 export const styleVariables = {
     primary: '#f1bb00',
@@ -21,7 +22,7 @@ export const commonControlStyles = {
     fontSize: '1rem',
 }
 
-export const ghostsBackground = {
+export const creatureBackground = {
     [GHOSTS.blinky]:
         'url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a80c8979-22d6-49c7-bca4-97613a4a9237/d5s8ix5-5880cd35-a088-4180-a04f-e956029fb06d.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E4MGM4OTc5LTIyZDYtNDljNy1iY2E0LTk3NjEzYTRhOTIzN1wvZDVzOGl4NS01ODgwY2QzNS1hMDg4LTQxODAtYTA0Zi1lOTU2MDI5ZmIwNmQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.kUktnugjMrKWpD_y-9d739NvnAsCnK41rygbE_zAMn8)',
     [GHOSTS.pinky]:
@@ -32,4 +33,5 @@ export const ghostsBackground = {
         'url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a80c8979-22d6-49c7-bca4-97613a4a9237/d5sab7r-10689df3-292d-461d-bd70-a7d721baf9ec.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E4MGM4OTc5LTIyZDYtNDljNy1iY2E0LTk3NjEzYTRhOTIzN1wvZDVzYWI3ci0xMDY4OWRmMy0yOTJkLTQ2MWQtYmQ3MC1hN2Q3MjFiYWY5ZWMuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.GS2fYfo5mexVLH0I0HBD_GPwvz5X082LyJDRu-qMglA)',
     [GHOSTS.ghosted]:
         'url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a80c8979-22d6-49c7-bca4-97613a4a9237/d5saelk-59f10b10-a01f-4300-9a6c-06a4cb1edcce.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E4MGM4OTc5LTIyZDYtNDljNy1iY2E0LTk3NjEzYTRhOTIzN1wvZDVzYWVsay01OWYxMGIxMC1hMDFmLTQzMDAtOWE2Yy0wNmE0Y2IxZWRjY2UuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.XUnNlFn3ruZGWjk4zykup6kgTTw3crPmmeO1U-tsXBg)',
+    [CREATURE_TYPES.packman]: 'url(https://i.gifer.com/XOsf.gif)',
 }

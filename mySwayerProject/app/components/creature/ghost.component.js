@@ -8,7 +8,7 @@ import CreatureMessenger from './creature-messenger.js'
 import CreatureIntersect from './creature-intersect.js'
 
 import { packmanStyles } from './packman.component.js'
-import { ghostsBackground } from '../../styles/variables.js'
+import { creatureBackground } from '../../styles/variables.js'
 
 import generateStylesPositions from '../../utils/generateCreatureStyles.js'
 import getRandomCreatureDirection from '../../utils/getRandomCreatureDirection.js'
@@ -17,7 +17,7 @@ import { getElementRefById, getPackmanRef } from '../../utils/getElementRef.js'
 /** @returns {Styles} */
 const generateGhostStyles = (ghostName) => ({
     ...packmanStyles,
-    background: ghostsBackground[ghostName],
+    background: creatureBackground[ghostName],
     compute: (state) => {
         const positions = generateStylesPositions(state.position)
 

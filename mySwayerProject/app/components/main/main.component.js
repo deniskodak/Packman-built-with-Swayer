@@ -9,6 +9,7 @@ import {
     GHOST_SCOPE,
     COIN_CHANNEL,
     GAME_LOST,
+    COIN_SCOPE,
     RESTART_GAME,
 } from '../../constants/channels.js'
 import PopupModel from '../shared/popup/popup-model.js'
@@ -89,9 +90,8 @@ export default () => {
                 this.emitMessage(GHOST_DIRECTION_CHANNEL, '', GHOST_SCOPE)
             },
             [COIN_CHANNEL](coin) {
-                console.log(coin, 'coin')
                 this.model.increaseScore()
-                this.emitMessage(COIN_CHANNEL, coin.id, BOARD_SCOPE)
+                this.emitMessage(COIN_CHANNEL, coin.id, COIN_SCOPE)
             },
             [GAME_LOST]() {
                 this.model.state.gameLostPopupModel.openPopup()

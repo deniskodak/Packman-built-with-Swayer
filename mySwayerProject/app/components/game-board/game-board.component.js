@@ -1,16 +1,7 @@
 import { styleVariables } from '../../styles/variables.js'
 import { GAME_STARTED, GAME_LOST } from '../../constants/channels.js'
-import { MODE_GHOSTS, COIN_ID, BOARD_ID } from '../../constants/game.js'
+import { MODE_GHOSTS, BOARD_ID } from '../../constants/game.js'
 import BoardModel from './board-model.js'
-
-/** @type {Styles} */
-const coinStyles = {
-    width: '10px',
-    height: '10px',
-    margin: '20px',
-    borderRadius: '100%',
-    backgroundColor: styleVariables.primary,
-}
 
 /** @type {Styles} */
 const boardStyles = {
@@ -22,20 +13,6 @@ const boardStyles = {
     justifyContent: 'flex-start',
     backgroundColor: styleVariables.boardBackground,
 }
-
-/** @returns {Schema} */
-const createCoin = (index) => ({
-    tag: 'div',
-    attrs: {
-        id: COIN_ID + index,
-    },
-    children: [
-        {
-            tag: 'div',
-            styles: coinStyles,
-        },
-    ],
-})
 
 /** @returns {ComponentRef} */
 const renderGhost = (ghostName) => ({
@@ -51,7 +28,10 @@ const packman = {
 /** @returns {Schema} */
 export default (model) => {
     const boardArray = Array.from(Array(model.state.stats.coinsAmount).keys())
-    const coins = boardArray.map(createCoin)
+    const coins = boardArray.map((index) => ({
+        path: '@components/game-board/coin.component',
+        input: index,
+    }))
 
     return {
         tag: 'div',

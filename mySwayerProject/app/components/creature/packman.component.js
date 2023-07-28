@@ -11,6 +11,7 @@ import CreatureIntersect from './creature-intersect.js'
 
 import generateStylesPositions from '../../utils/generateCreatureStyles.js'
 import { getGhostsRefs, getPackmanRef } from '../../utils/getElementRef.js'
+import { creatureBackground } from '../../styles/variables.js'
 
 const ROTATE_DEGREES = {
     [CREATURE_DIRECTIONS.left]: '180deg',
@@ -26,7 +27,7 @@ export const packmanStyles = {
     position: 'absolute',
     width: CREATURE_SIZE + 'px',
     height: CREATURE_SIZE + 'px',
-    background: 'url(https://i.gifer.com/XOsf.gif)',
+    background: creatureBackground[CREATURE_TYPES.packman],
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'contain',
     compute: (state) => {
@@ -60,6 +61,7 @@ export default {
 
             this.model.setIntersect(creatureIntersect)
             this.model.setMessenger(creatureMessenger)
+            this.model.updateDirection(CREATURE_DIRECTIONS.right)
         },
         destroy() {
             this.model.resetDirection()

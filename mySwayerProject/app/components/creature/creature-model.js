@@ -6,7 +6,7 @@ import {
     CREATURE_OPPOSITE_POSITION,
     HARD_GHOST_STEP_DELAY,
 } from '../../constants/creature.js'
-import { GHOSTS, COIN_EATEN_CLASS } from '../../constants/game.js'
+import { GHOSTS } from '../../constants/game.js'
 
 const INITIAL_PACKMAN_POSITION = {
     [CREATURE_DIRECTIONS.left]: 0,
@@ -30,13 +30,14 @@ const INITIAL_CREATURE_POSITION = {
 export default class CreatureModel {
     constructor(creatureType, creatureId) {
         this.state = {
-            direction: '',
+            direction: CREATURE_DIRECTIONS.right,
             position: { ...INITIAL_CREATURE_POSITION[creatureType] },
         }
         this.positionInterval = 0
         this.creatureType = creatureType
         this.creatureId = creatureId
         this.stepDelay = this.getStepDelay(creatureId)
+        this.isCreaturePackman = creatureType === CREATURE_TYPES.packman
 
         this.messenger = null
         this.intersect = null
@@ -47,13 +48,17 @@ export default class CreatureModel {
     }
 
     updateDirection(direction) {
-        this.state.direction = direction
-        const isPackmanCreature = this.creatureType === CREATURE_TYPES.packman
+        const isDirectionUpdated = this.state.direction !== direction
+
+        if (this.isCreaturePackman && isDirectionUpdated) {
+            this.messenger.sendTurnChanged()
+        }
+
+        if (isDirectionUpdated) this.state.direction = direction
+
         if (this.positionInterval) clearInterval(this.positionInterval)
 
         this.updatePosition()
-
-        if (isPackmanCreature) this.messenger.sendTurnChanged()
     }
 
     updatePosition() {
@@ -67,7 +72,6 @@ export default class CreatureModel {
                 const isCoinTouched = this.intersect.checkIsCoinTouched()
                 if (isCoinTouched) {
                     const coin = this.intersect.lastTouchedCoin
-                    this.hideCoin(coin)
                     this.messenger.sendCoinTouched(coin)
                 }
             }
@@ -96,11 +100,7 @@ export default class CreatureModel {
         this.state.position = {
             ...INITIAL_CREATURE_POSITION[this.creatureType],
         }
-    }
-
-    hideCoin(coin) {
-        coin.classList.add(COIN_EATEN_CLASS)
-        coin.style.opacity = 0
+        setTimeout(() => (this.state.direction = CREATURE_DIRECTIONS.right))
     }
 
     setMessenger(creatureMessenger) {
