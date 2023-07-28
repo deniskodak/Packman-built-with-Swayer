@@ -18,4 +18,4 @@ npm run build:prod
 swr -h
 ```
 
-## [Documentation and examples](https://github.com/rohiievych/swayer)
+## [Swayer documentation and examples](https://github.com/rohiievych/swayer)
