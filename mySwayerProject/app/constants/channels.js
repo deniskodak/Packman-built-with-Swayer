@@ -7,9 +7,9 @@ export const GAME_LOST = 'gameLost'
 export const RESTART_GAME = 'restartGame'
 
 export const CONTENT_SCOPE = { scope: ['@components/main/main.component'] }
-export const PACKMAN_SCOPE = { scope: '@components/creature/packman.component' }
-export const GHOST_SCOPE = { scope: '@components/creature/ghost.component' }
-export const COIN_SCOPE = { scope: '@components/game-board/coin.component' }
+export const PACKMAN_SCOPE = { scope: '@game/creature/packman.component' }
+export const GHOST_SCOPE = { scope: '@game/creature/ghost.component' }
+export const COIN_SCOPE = { scope: '@game/coin/coin.component' }
 export const BOARD_SCOPE = {
-    scope: '@components/game-board/game-board.component',
+    scope: '@game/board/board.component',
 }

@@ -116,17 +116,17 @@ export default () => {
                     input: mainModel,
                 },
                 {
-                    path: '@components/game-board/game-board.component',
+                    path: '@game/board/board.component',
                     input: mainModel,
                 },
 
                 modePopupModel.state.visible && {
-                    path: '@components/mode-popup/mode-popup.component',
+                    path: '@popups/mode-popup.component',
                     input: { onRadioChange },
                 },
 
                 gameLostPopupModel.state.visible && {
-                    path: '@components/lost-popup/lost-popup.component',
+                    path: '@popups/lost-popup.component',
                     input: { score, turns, mode },
                 },
             ].filter(Boolean)

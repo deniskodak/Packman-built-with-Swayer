@@ -25,7 +25,7 @@ export default (mainModel) => ({
             styles: titleStyles,
         },
         ({ stats: { score, turns } }) => ({
-            path: '@components/game-info/game-info.component',
+            path: '@game/info/info.component',
             input: { score, turns },
         }),
     ],

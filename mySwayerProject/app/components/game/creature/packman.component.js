@@ -2,16 +2,16 @@ import {
     CREATURE_TYPES,
     CREATURE_DIRECTIONS,
     CREATURE_SIZE,
-} from '../../constants/creature.js'
-import { PACKMAN_DIRECTION_CHANNEL } from '../../constants/channels.js'
+} from '../../../constants/creature.js'
+import { PACKMAN_DIRECTION_CHANNEL } from '../../../constants/channels.js'
 
 import CreatureModel from './creature-model.js'
 import CreatureMessenger from './creature-messenger.js'
 import CreatureIntersect from './creature-intersect.js'
 
-import generateStylesPositions from '../../utils/generateCreatureStyles.js'
-import { getGhostsRefs, getPackmanRef } from '../../utils/getElementRef.js'
-import { creatureBackground } from '../../styles/variables.js'
+import generateStylesPositions from '../../../utils/generateCreatureStyles.js'
+import { getGhostsRefs, getPackmanRef } from '../../../utils/getElementRef.js'
+import { creatureBackground } from '../../../styles/variables.js'
 
 const ROTATE_DEGREES = {
     [CREATURE_DIRECTIONS.left]: '180deg',

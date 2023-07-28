@@ -3,7 +3,7 @@ import {
     TURN_CHANNEL,
     COIN_CHANNEL,
     GAME_LOST,
-} from '../../constants/channels.js'
+} from '../../../constants/channels.js'
 
 /** @implements {ICreatureMessenger} */
 export default class CreatureMessenger {

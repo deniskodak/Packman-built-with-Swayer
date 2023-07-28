@@ -1,6 +1,6 @@
-import { styleVariables } from '../../styles/variables.js'
-import { COIN_ID, EATEN_COIN_ID } from '../../constants/game.js'
-import { COIN_CHANNEL } from '../../constants/channels.js'
+import { styleVariables } from '../../../styles/variables.js'
+import { COIN_ID, EATEN_COIN_ID } from '../../../constants/game.js'
+import { COIN_CHANNEL } from '../../../constants/channels.js'
 import CoinModel from './coin-model.js'
 
 /** @type {Styles} */

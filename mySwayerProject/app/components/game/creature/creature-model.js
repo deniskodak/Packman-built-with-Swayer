@@ -5,8 +5,8 @@ import {
     CREATURE_STEP_SIZE,
     CREATURE_OPPOSITE_POSITION,
     HARD_GHOST_STEP_DELAY,
-} from '../../constants/creature.js'
-import { GHOSTS } from '../../constants/game.js'
+} from '../../../constants/creature.js'
+import { GHOSTS } from '../../../constants/game.js'
 
 const INITIAL_PACKMAN_POSITION = {
     [CREATURE_DIRECTIONS.left]: 0,

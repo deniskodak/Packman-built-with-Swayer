@@ -1,4 +1,4 @@
-import { styleVariables } from '../../styles/variables.js'
+import { styleVariables } from '../../../styles/variables.js'
 
 /** @type {Styles} */
 const paragraphStyles = {
