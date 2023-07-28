@@ -1,4 +1,3 @@
-import { MODES } from '../../constants/game.js'
 import {
     TURN_CHANNEL,
     GAME_STARTED,
@@ -12,45 +11,8 @@ import {
     COIN_SCOPE,
     RESTART_GAME,
 } from '../../constants/channels.js'
-import PopupModel from '../shared/popup/popup-model.js'
+import MainModel from './main-model.js'
 import { styleVariables } from '../../styles/variables.js'
-
-/** @implements {IMainModel} */
-class MainModel {
-    #defaultScore = 0
-    #defaultTurns = 0
-    #defaultCoinsAmount = 250
-    #defaultMode = MODES.medium
-
-    state = {
-        stats: {
-            score: this.#defaultScore,
-            turns: this.#defaultTurns,
-            coinsAmount: this.#defaultCoinsAmount,
-        },
-        mode: this.#defaultMode,
-
-        modePopupModel: new PopupModel(),
-        gameLostPopupModel: new PopupModel(false),
-    }
-
-    increaseScore() {
-        this.state.stats.score += 1
-    }
-
-    increaseTurn() {
-        this.state.stats.turns += 1
-    }
-
-    resetModel() {
-        this.state.stats.score = 0
-        setTimeout(() => (this.state.stats.turns = 0))
-    }
-
-    updateMode(mode) {
-        this.state.mode = mode
-    }
-}
 
 /** @type {Styles} */
 const mainStyles = {
@@ -108,9 +70,8 @@ export default () => {
             gameLostPopupModel,
             stats: { score, turns },
             mode,
-        }) => {
-            console.log(turns, 'turns')
-            return [
+        }) =>
+            [
                 {
                     path: '@components/header/header.component',
                     input: mainModel,
@@ -129,7 +90,6 @@ export default () => {
                     path: '@popups/lost-popup.component',
                     input: { score, turns, mode },
                 },
-            ].filter(Boolean)
-        },
+            ].filter(Boolean),
     }
 }

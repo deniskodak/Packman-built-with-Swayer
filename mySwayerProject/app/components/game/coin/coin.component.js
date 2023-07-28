@@ -7,7 +7,6 @@ import CoinModel from './coin-model.js'
 const coinStyles = {
     width: '10px',
     height: '10px',
-    margin: '20px',
     borderRadius: '100%',
     backgroundColor: styleVariables.primary,
     compute: ({ isEaten }) => ({
@@ -21,6 +20,9 @@ export default (index) => {
 
     return {
         tag: 'div',
+        styles: {
+            padding: '20px',
+        },
         attrs: {
             id: coinId,
         },

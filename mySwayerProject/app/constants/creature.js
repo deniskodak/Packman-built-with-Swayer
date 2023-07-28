@@ -17,7 +17,7 @@ export const CREATURE_OPPOSITE_POSITION = {
     [CREATURE_DIRECTIONS.up]: CREATURE_DIRECTIONS.down,
 }
 
-export const CREATURE_STEP_SIZE = 15
+export const CREATURE_STEP_SIZE = 10
 export const CREATURE_STEP_DELAY = 100
 export const HARD_GHOST_STEP_DELAY = 50
 export const CREATURE_SIZE = 50

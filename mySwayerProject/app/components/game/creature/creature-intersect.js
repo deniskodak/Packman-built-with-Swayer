@@ -1,10 +1,14 @@
-import { CREATURE_DIRECTIONS, CREATURE_SIZE } from '../../../constants/creature.js'
+import {
+    CREATURE_DIRECTIONS,
+    CREATURE_SIZE,
+} from '../../../constants/creature.js'
 import { COIN_ID } from '../../../constants/game.js'
 import { BOARD_PADDING } from '../../../constants/game.js'
 import { getBoardRef } from '../../../utils/getElementRef.js'
 
 const DIRECTION_FIX = CREATURE_SIZE + BOARD_PADDING + BOARD_PADDING / 2
 const BOTTOM_DIRECTION_FIX = CREATURE_SIZE + BOARD_PADDING
+const CREATURE_SIZE_HALF = CREATURE_SIZE / 2
 
 /** @implements {ICreatureIntersect} */
 export default class CreatureIntersect {
@@ -18,8 +22,11 @@ export default class CreatureIntersect {
 
     checkIsCoinTouched() {
         const creatureRect = this.#getElementRect(this.creatureRef)
+        const centerX = creatureRect.left + CREATURE_SIZE_HALF
+        const centerY = creatureRect.y + CREATURE_SIZE_HALF
+
         this.lastTouchedCoin = document
-            .elementsFromPoint(creatureRect.x, creatureRect.y)
+            .elementsFromPoint(centerX, centerY)
             .find((element) => element.id.includes(COIN_ID))
 
         return !!this.lastTouchedCoin
